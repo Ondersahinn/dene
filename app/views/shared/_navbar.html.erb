@@ -1,0 +1,9 @@
+<%-# **** Kullanıcı Girişi ***** -%>
+    <% if user_signed_in? %>
+     <%= current_user.email %>
+    <%= link_to 'Profil Düzenle', edit_user_registration_path, :class => 'btn btn-light' %> 
+    <%= link_to "Çıkış", destroy_user_session_path, method: :delete, :class => 'btn btn-light' %>
+    <% else %>
+    <%= link_to "Kayıt Ol", new_user_registration_path, :class => 'btn btn-light' %>
+    <%= link_to "Giriş", new_user_session_path, :class => 'btn btn-light' %>
+    <% end %> 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Önder Şahin Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+ 
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <a class="navbar-brand" href="#">Önder Blog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item active">
+         
+         <%= link_to 'Anasayfa',yazilars_path,class:"nav-item nav-link active" %>
+         </li>
+     <li class="nav-item">
+     <%= link_to 'Projeler', projelers_path,class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+      <%= link_to 'Yazılar', yazilars_path,class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+      <%= link_to 'Hakkinda', bilgilers_path,class:"nav-link" %>
+    </li>
+      <li class="nav-item">
+      <%= link_to 'İletişim', iletisims_path,class:"nav-link" %>
+    </li>
+    </ul>
+    <span class="navbar-text">
+    <%= render 'shared/navbar' %>
+    </span>
+  </div>
+</nav>
+    <%= yield %>
+    <%= render 'shared/footer' %>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<%= form_with(model: bilgiler, local: true) do |form| %>
+  <% if bilgiler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bilgiler.errors.count, "error") %> prohibited this bilgiler from being saved:</h2>
+
+      <ul>
+      <% bilgiler.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :aciklama %>
+    <%= form.text_area :aciklama, class:"form-control"%>
+  </div>
+  <div class="field">
+  <%= form.label :Resim, class:"form-control is-valid "%>
+  <%= form.file_field :resim %>
+</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

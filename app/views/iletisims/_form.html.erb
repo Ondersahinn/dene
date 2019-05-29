@@ -1,0 +1,51 @@
+<%= form_with(model: @iletisim, local: true) do |form| %>
+  <% if @iletisim.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(iletisim.errors.count, "error") %> prohibited this iletisim from being saved:</h2>
+
+      <ul>
+      <% iletisim.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+    <h1> İletişim</h1>
+
+    <div class="field">
+    <%= form.label :ad %>
+    <%= form.text_field :ad ,class:"form-control "%>
+  </div>
+
+  <div class="field">
+    <%= form.label :soyad %>
+    <%= form.text_field :soyad,class:"form-control " %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email ,class:"form-control "%>
+  </div>
+
+  <div class="field">
+    <%= form.label :mesaj %>
+    <%= form.text_area :mesaj,class:"form-control " %>
+  </div>
+  <br/>
+  <div class="actions">
+  <%= form.submit "Gönder" ,class:"btn btn-primary"%> 
+    
+  </div>
+<% end %>
+
+
+    </div>
+  </div>
+</div>
+ 
+  

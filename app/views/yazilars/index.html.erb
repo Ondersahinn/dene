@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'shared/carousel' %>
+
+
+<tbody>
+ 
+  <section class="blog-post-area">
+    <div class="container">
+    
+      <div class="row">
+      <div class="col-md-4">
+      <div class="card" style="height:600px">
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item disabled">Yeni Teknolojiler</li>
+            <li class="list-group-item">.Net MVC Hakkında Yazılar</li>
+            <li class="list-group-item">Ruby On Rails Yazılar</li>
+            <li class="list-group-item">React Native Yazılar</li>
+            <li class="list-group-item">Staj Hakkında Yazılar</li>
+          </ul>
+          </div>
+          <h2 class="text-center">Reklam</h2>
+      </div></div>
+        <% @yazilars.each do |yazilar| %>  
+         
+              <div class="col-md-8">
+                <div class="single-recent-blog-post">
+                  <div class="thumb">
+                    <%= image_tag yazilar.resim.url(:thumb) if yazilar.resim? %> 
+                    <ul class="thumb-info" >
+                    <li><%= yazilar.yazar %></li>
+                      <li> <%= yazilar.tarih %></li>
+                      <li> <%= pluralize(yazilar.comments.count, "Yorum")%></li>
+                    </ul>
+                  </div>
+                  <div class="details mt-20">
+                      <h3><%= yazilar.baslik %></h3>
+                      <p><%= yazilar.aciklama.first(250)%> </p>
+                      <%= link_to 'Göster', yazilar,{:class=>"btn btn-primary"} %>    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4"></div>
+            <% end %>
+
+        </div>
+      </div>  
+</section>
+</tbody>

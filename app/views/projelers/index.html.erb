@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<%= render 'shared/carousel' %>
+<tbody>
+  
+  <section class="blog-post-area">
+    <div class="container">
+      <div class="row" style="margin-left:0">
+      <div class="col-md-4 col-ms-4 ">
+      <div class="card" style="height:600px">
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item disabled">Veri Madenciliği Makale</li>
+            <li class="list-group-item">.Net MVC Proje</li>
+            <li class="list-group-item">Ruby On Rails Proje</li>
+            <li class="list-group-item">React Native Proje</li>
+            
+          </ul>
+          </div>
+          <h2 class="text-center">Reklam</h2>
+      </div></div>
+      <% @projelers.each do |projeler| %> 
+        <div class="col-md-8 col-ms-8">
+          <div class="single-recent-blog-post">
+            <div class="thumb">
+              <%= image_tag projeler.resim.url(:thumb) if projeler.resim? %> 
+              <ul class="thumb-info" >
+               <li><%= projeler.konu %></li>
+                <li> <%= projeler.tarih %></li>
+                <li>2 Like</li>
+              </ul>
+            </div>
+            <div class="details mt-20">
+              <h3><%= projeler.baslik %></h3>
+              <p><%= projeler.aciklama.first(250) %> </p>
+               <%= link_to 'Göster', projeler,{:class=>"btn btn-primary"} %>    
+               </div>
+               </div>
+             </div>
+            <div class="col-md-4 col-ms-4"></div>
+      <% end %>
+   </div>
+  </div>
+         
+          
+</section>
+</tbody>
+

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ad:</strong>
+  <%= @iletisim.ad %>
+</p>
+
+<p>
+  <strong>Soyad:</strong>
+  <%= @iletisim.soyad %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @iletisim.email %>
+</p>
+
+<p>
+  <strong>Mesaj:</strong>
+  <%= @iletisim.mesaj %>
+</p>
+
+<%= link_to 'Edit', edit_iletisim_path(@iletisim) %> |
+<%= link_to 'Back', iletisims_path %>
