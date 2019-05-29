@@ -4,47 +4,63 @@
 
 
 <tbody>
- 
-  <section class="blog-post-area">
-    <div class="container">
-    
-      <div class="row">
-      <div class="col-md-4">
-      <div class="card" style="height:600px">
-        <div class="card-body">
-          <ul class="list-group">
-            <li class="list-group-item disabled">Yeni Teknolojiler</li>
-            <li class="list-group-item">.Net MVC Hakkında Yazılar</li>
-            <li class="list-group-item">Ruby On Rails Yazılar</li>
-            <li class="list-group-item">React Native Yazılar</li>
-            <li class="list-group-item">Staj Hakkında Yazılar</li>
-          </ul>
-          </div>
-          <h2 class="text-center">Reklam</h2>
-      </div></div>
-        <% @yazilars.each do |yazilar| %>  
+<div class="container-fluid">
+     
+     </br>
+     </br>
+     <% sayac=0 %>
+     <% hucre_sayisi=2 %>
+     <% @yazilars.each do |yazilar| %>  
+       
+         <% if(sayac == 0) %>
+             <div class="row">
+         <% end %>
+                 <div class="col">
+                     <div class="card">
+                         <div class="card-body">
+                             <h3 class="card-title"> <%= yazilar.baslik %> </h3>
+                             <h6 class="card-subtitle mb-2 text-muted">
+                             <p><%= yazilar.aciklama.first(250)%> </p>
+                             </h6>
+                             <p class="card-text">
+                             <%= image_tag yazilar.resim.url(:thumb) if yazilar.resim? %> 
+                             </p>
+                             
+                             <p>
+                             <%= yazilar.yazar %>
+                             <%= pluralize(yazilar.comments.count, "Yorum")%>
+                             <%= yazilar.tarih %>
+                             </p>
+                             <% if user_signed_in? %>
+                                <%= link_to 'Görüntüle', yazilar , {:class=>"btn btn-success"} %>   
+                                 <% else %>
+                                <%= link_to 'Görüntüle', yazilar , {:class=>"btn btn-success"} %>   
+                            <% end %>
+                             
+                         </div>
+                     </div>
+                 </div>
+         <% if(sayac == (hucre_sayisi-1)) %>
+             </div><br>
+             <% sayac=0 %>
+         <% else %> 
+             <% sayac= sayac + 1 %>
+         <% end %>
+             
          
-              <div class="col-md-8">
-                <div class="single-recent-blog-post">
-                  <div class="thumb">
-                    <%= image_tag yazilar.resim.url(:thumb) if yazilar.resim? %> 
-                    <ul class="thumb-info" >
-                    <li><%= yazilar.yazar %></li>
-                      <li> <%= yazilar.tarih %></li>
-                      <li> <%= pluralize(yazilar.comments.count, "Yorum")%></li>
-                    </ul>
-                  </div>
-                  <div class="details mt-20">
-                      <h3><%= yazilar.baslik %></h3>
-                      <p><%= yazilar.aciklama.first(250)%> </p>
-                      <%= link_to 'Göster', yazilar,{:class=>"btn btn-primary"} %>    
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4"></div>
-            <% end %>
+     <% end %>
+       
+       
+ </div>
+ </br>
+ 
+</div>
 
-        </div>
-      </div>  
-</section>
+
+
+
+</br>
+</br>
+</br>
+
 </tbody>
